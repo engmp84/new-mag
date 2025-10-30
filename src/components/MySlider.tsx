@@ -23,8 +23,6 @@ export default function MySlider<T>({
 
 	const [numberOfItems, setNumberOfitem] = useState(itemPerRow)
 	const windowWidth = useWindowSize().width
-	const sliderRef = useRef<HTMLDivElement>(null)
-
 	const sliderRef = useRef<HTMLDivElement>(null);
 
 	const { scrollToNextSlide, scrollToPrevSlide, isAtEnd, isAtStart } =
