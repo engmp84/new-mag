@@ -18,19 +18,16 @@ export interface NcDropDownItem<T = string> {
 	href?: string
 	isTargetBlank?: boolean
 }
+import React, { ReactNode, ReactElement } from 'react';
 
-export interface NcDropDownProps<T> {
-	className?: string
-	panelMenusClass?: string
-	triggerIconClass?: string
+interface NcDropDownProps<T = any> {
 	data: NcDropDownItem<T>[]
 	renderTrigger?: () => ReactNode
-	renderItem?: (item: NcDropDownItem<T>) => JSX.Element
+	renderItem?: (item: NcDropDownItem<T>) => ReactElement
 	title?: string
 	onClick: (item: NcDropDownItem<T>) => void
 	dropdownItemsClass?: string
 }
-
 function NcDropDown<T>({
 	className = `h-8 w-8 bg-neutral-100 dark:bg-neutral-800 rounded-full flex items-center justify-center`,
 	triggerIconClass = 'h-6 w-6',
