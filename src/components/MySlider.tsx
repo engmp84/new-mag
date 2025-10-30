@@ -25,8 +25,10 @@ export default function MySlider<T>({
 	const windowWidth = useWindowSize().width
 	const sliderRef = useRef<HTMLDivElement>(null)
 
+	const sliderRef = useRef<HTMLDivElement>(null);
+
 	const { scrollToNextSlide, scrollToPrevSlide, isAtEnd, isAtStart } =
-		useSnapSlider({ sliderRef })
+	useSnapSlider({ sliderRef });
 
 	useEffect(() => {
 		if (itemPerRow <= 1) {
