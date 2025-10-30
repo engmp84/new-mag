@@ -178,21 +178,22 @@ const SearchModal: FC<Props> = ({ renderTrigger, triggerClassName = '' }) => {
 							leaveTo="opacity-0 translate-y-20 sm:translate-y-0 sm:scale-95"
 						>
 							<DialogPanel className="mx-auto w-full max-w-2xl transform divide-y divide-gray-100 self-end overflow-hidden bg-white shadow-2xl ring-1 ring-black/5 transition-all sm:self-start sm:rounded-xl dark:divide-gray-700 dark:bg-neutral-800 dark:ring-white/10">
-								<Combobox
-									onChange={(item?: PersonType) => {
-										if (!item?.uri) {
-											return
-										}
-										if (item.type === 'quick-action') {
-											router.push(item.uri + query)
-											setOpen(false)
-											return
-										}
-										router.push(item.uri || '')
-										setOpen(false)
-									}}
-									form="search-form-combobox"
-								>
+<Combobox
+  onChange={(item: unknown) => {
+    const person = item as PersonType;
+    if (!person?.uri) {
+      return;
+    }
+    if (person.type === 'quick-action') {
+      router.push(person.uri + query);
+      setOpen(false);
+      return;
+    }
+    router.push(person.uri || '');
+    setOpen(false);
+  }}
+  form="search-form-combobox"
+>
 									<div className="relative">
 										<MagnifyingGlassIcon
 											className="pointer-events-none absolute start-4 top-3.5 h-5 w-5 text-gray-400 dark:text-gray-300"
